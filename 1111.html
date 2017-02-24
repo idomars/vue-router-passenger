@@ -1,0 +1,183 @@
+<template id="appMain-temp">
+     <div id="appMain" class="mui-page">
+        <header class="mui-navbar-inner mui-bar mui-bar-nav account_header" style="">
+            <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+                <span class="mui-icon mui-icon-left-nav"></span>
+            </button>
+            <h1 class="mui-center mui-title">乘机人列表</h1>
+            <a><span class="mui-icon mui-icon-home mui-pull-right"></span>
+            </a>
+        </header>
+        <div class="mui-page-content air_people_content">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div @click='addPassenger' class="air_people_add">
+                        <img class="mui-pull-left" src="static/img/passenger_icon_add.png" width="6%">
+                        <span class="mui-pull-left">新增乘机人</span>
+                    </div>
+                    <ul class="mui-table-view air_people_list" id="passenger-item-list">
+                        <!-- 列表页面 -->
+                        <li class="mui-table-view-cell" v-for="(passenger,index) in passengerList">
+                            <div class="mui-slider-right mui-disabled" v-bind:data-value=index+1>
+                                <a class="mui-btn mui-btn-red" @click="deletePass(index,$event)" :index=index>删除</a>
+                            </div>
+                            <div class="mui-slider-handle">
+                                <div class="air_people_info">
+                                    <span class="info_contact_name mui-pull-left" >{{passenger.name}}</span>
+                                    <img width="8%" src="static/img/male_icon.png" class="mui-pull-left" />
+                                    <div class="mui-clearfix"></div>
+                                    <p>{{passenger.idNumber}}</p>
+                                </div>
+                                <img @click="modifyPass" :id=index width="8%" class="mui-pull-right account_adedit_icon" src="static/img/flight_ico_flight_passenger_credit.png" />
+                            </div>
+                            <li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="add-temp">
+    <!--新增乘机人 -->
+    <div id="passengerAdd" class="mui-page air_passenger_form" style="">
+        <header class="mui-navbar-inner mui-bar mui-bar-nav account_header air_passenger_header" style="">
+            <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+                <span class="mui-icon mui-icon-left-nav"></span>
+            </button>
+            <h1 class="mui-center mui-title">新增乘机人</h1>
+            <a class="mui-pull-right" @click="finish">完成</a>
+        </header> 
+        <div class="mui-page-content ">
+            <form id="passengerForm">
+                <ul class="mui-table-view">
+                    <input type="text" style="display:none" id="bookId" v-model="passenger.id" />
+                    <li class="mui-table-view-cell">
+                        <div class="mui-input-row account_input">
+                            <label>姓名</label>
+                            <input type="text" placeholder="与乘机证件一致"  v-model="passenger.name" maxlength="12"/>
+                        </div>
+                        <li>
+                            <li class="mui-table-view-cell account_certType">
+                                <div class="mui-navigate-right mui-input-row account_input">
+                                    <label>证件类型</label>
+                                    <input @click='selectType' type="text" placeholder="" v-model="idTypeName" id="certTypeName" readonly="readonly" />
+                                    <input type="hidden" id="certType" v-model="passenger.idType" readonly=" readonly " />
+
+                                </div>
+                                <li>
+                                    <li class="mui-table-view-cell ">
+                                        <div class="mui-input-row account_input ">
+                                            <label>证件号码</label>
+                                            <input type="text "  placeholder="请输入证件号码 " maxlength="18 " id="certCode "  v-model="passenger.idNumber"/>
+                                        </div>
+                                        <li>
+                                            <li class="mui-table-view-cell ">
+                                                <div class="mui-input-row account_input ">
+                                                    <label>手机号码</label>
+                                                    <input type="text " placeholder="请输入手机号码 " maxlength="11 " id="mobile "    v-model="passenger.mobile"/>
+                                                </div>
+                                         <li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+</template>
+<template id="certTypeSelect-temp">
+       <div id="certTypeSelect" >
+        <div class="mui-popover account_typeSelect" :class={"mui-active":isActive} style="padding-top:10px ">
+            <ul class="mui-table-view ">
+                <li class="account_typeSelect_title "><span>选证证件类型</span></li>
+                <li class="mui-table-view-cell" @click='chooseIdType(item)' v-for="(item,index) in idTypeData"  :id="item.idType" ><a class="mui-pull-left " href="#">{{item.idTypeName}}</a> <img src="static/img/common_ico_checkmark.png" class="mui-pull-right"   v-if="selectIdType==item.idType"/>
+                </li>
+               
+            </ul>
+            
+        </div>
+         <div class="mui-backdrop" @click="isActive=false" v-show=isActive></div>
+     </div>
+</template>
+
+
+Vue.filter(
+    "formatIdType",function(idType){
+        console.log(value);
+        var certTypeName = "";
+        switch(idType){
+            case "0":
+                certTypeName = "身份证";
+                break;
+            case "4":
+                certTypeName = "护照";
+                break;
+            case "5":
+                certTypeName = "其他";
+                break;
+        }
+        return certTypeName;
+    }
+)
+
+
+
+var appMain = {
+    template:'#appMain-temp'
+};
+
+var addTemp = {
+    template:'#add-temp'
+};
+
+ /*  {path:"/list", component:appMain},
+    {path:'/add',component:addTemp},*/ 
+
+
+
+
+
+
+    路由与组件踩过的坑:
+
+    1.在路由引入组件前，需要先队组件进行定义，即组件的定义在路由前面，最后再到vue示例；
+
+    2.如果在实例中用到组件需要挂载组件，通过render: h => h(app);挂载，括号中的是组件名称,
+
+        关于 render: h => h(app) 函数, 箭头函数是ES6语法；
+        //ES6
+        h => h(app)
+
+        //ES5
+        (function (h) {  
+          return h(App);  
+        });    
+
+        render: h => h(app)是Vue 2.0新增的函数，可以直接给绑定节点渲染一个vue组件，
+        一般可以直接这样给实例绑定一个vue组件，这样做不需要再页面中填入组件标记了
+        new Vue({
+            el: '#app',
+            render: h => h(app)
+        });
+        不用render也可以使用
+        new Vue({
+            el: '#app',
+            components: { App }
+        });
+        同时页面中需要写入组件标记
+        <div id="app">
+             <app></app>
+        </div>
+    
+    3. 在官网中创建vueRouter实例的时候给出的示例:
+        const router = new VueRouter({
+            routes // （缩写）相当于 routes: routes
+        });
+        自己在定义路由时候将名称定义成了 routers,然后也采用了缩写写入了routers,
+        这时候vue不会报错，路由也没有生效，查了好久才发现这个问题，采用缩写的话必须要与属性名保持一致。
+        后面的挂载路由是也是同理；也可以不采用缩写方法，少偷懒也少踩点坑。
+
+    4.路由redirect 的配置，redirect配置在后面,
+        刚开始的时候不小心将  {path:"*",redirect:"/app"} 配置在了路由第一个位置，vue会报栈溢出的错误。
+
+
+    5.golbal bus 只能在同一个路由下不同组件进行通讯，在不同路由之间会出现问题，比如A组件在跳往B组件的时候，通过$.emit
+    发送了一条消息，这时候B该如何接收？因为在发消息的时候B组件还没有创建，所以B组件无法监听A组件发出的消息进行回调。

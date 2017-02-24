@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+    <link rel="stylesheet" href="static/css/mui.css">
+    <link rel="stylesheet" href="static/css/style_m.css">
+    <link rel="stylesheet" href="static/css/icons-extra.css">
+    <link rel="stylesheet" href="static/css/animate.min.css">
+</head>
+
+<body class=" mui-fullscreen ">
+    <div id='app'>
+        <app></app>
+    </div>
+</body>
+
+<template id="app-temp">
+      <div  class=" mui-views ">
+        <div class="mui-view">
+            <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutRight">
+              <router-view></router-view>
+            </transition>
+        </div>
+    </div>
+</template>
+
+<template id="appMain-temp">
+     <div id="appMain" class="mui-page">
+        <header class="mui-navbar-inner mui-bar mui-bar-nav account_header" style="">
+            <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+                <span class="mui-icon mui-icon-left-nav"></span>
+            </button>
+            <h1 class="mui-center mui-title">乘机人列表</h1>
+            <a><span class="mui-icon mui-icon-home mui-pull-right"></span>
+            </a>
+        </header>
+        <div class="mui-page-content air_people_content">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div @click='addPassenger' class="air_people_add">
+                        <img class="mui-pull-left" src="static/img/passenger_icon_add.png" width="6%">
+                        <span class="mui-pull-left">新增乘机人</span>
+                    </div>
+                    <ul class="mui-table-view air_people_list" id="passenger-item-list">
+                        <!-- 列表页面 -->
+                        <li class="mui-table-view-cell" v-for="(passenger,index) in passengerList">
+                            <div class="mui-slider-right mui-disabled" v-bind:data-value=index+1>
+                                <a class="mui-btn mui-btn-red" @click="deletePass(index,$event)" :index=index>删除</a>
+                            </div>
+                            <div class="mui-slider-handle">
+                                <div class="air_people_info">
+                                    <span class="info_contact_name mui-pull-left" >{{passenger.name}}</span>
+                                    <img width="8%" src="static/img/male_icon.png" class="mui-pull-left" />
+                                    <div class="mui-clearfix"></div>
+                                    <p>{{passenger.idNumber}}</p>
+                                </div>
+                                <img @click="modifyPass" :id=index width="8%" class="mui-pull-right account_adedit_icon" src="static/img/flight_ico_flight_passenger_credit.png" />
+                            </div>
+                            <li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="add-temp">
+    <!--新增乘机人 -->
+    <div id="passengerAdd" class="mui-page air_passenger_form" style="">
+        <header class="mui-navbar-inner mui-bar mui-bar-nav account_header air_passenger_header" style="">
+            <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+                <span class="mui-icon mui-icon-left-nav"></span>
+            </button>
+            <h1 class="mui-center mui-title">新增乘机人</h1>
+            <a class="mui-pull-right" @click="finish">完成</a>
+        </header> 
+        <div class="mui-page-content ">
+            <form id="passengerForm">
+                <ul class="mui-table-view">
+                    <input type="text" style="display:none" id="bookId" v-model="passenger.id" />
+                    <li class="mui-table-view-cell">
+                        <div class="mui-input-row account_input">
+                            <label>姓名</label>
+                            <input type="text" placeholder="与乘机证件一致"  v-model="passenger.name" maxlength="12"/>
+                        </div>
+                        <li>
+                            <li class="mui-table-view-cell account_certType">
+                                <div class="mui-navigate-right mui-input-row account_input">
+                                    <label>证件类型</label>
+                                    <input @click='selectType' type="text" placeholder="" v-model="idTypeName" id="certTypeName" readonly="readonly" />
+                                    <input type="hidden" id="certType" v-model="passenger.idType" readonly=" readonly " />
+
+                                </div>
+                                <li>
+                                    <li class="mui-table-view-cell ">
+                                        <div class="mui-input-row account_input ">
+                                            <label>证件号码</label>
+                                            <input type="text "  placeholder="请输入证件号码 " maxlength="18 " id="certCode "  v-model="passenger.idNumber"/>
+                                        </div>
+                                        <li>
+                                            <li class="mui-table-view-cell ">
+                                                <div class="mui-input-row account_input ">
+                                                    <label>手机号码</label>
+                                                    <input type="text " placeholder="请输入手机号码 " maxlength="11 " id="mobile "    v-model="passenger.mobile"/>
+                                                </div>
+                                         <li>
+                                    
+                </ul>
+            </form>
+        </div>
+    </div>
+
+</template>
+<template id="certTypeSelect-temp">
+       <div id="certTypeSelect" >
+        <div class="mui-popover account_typeSelect" :class={"mui-active":isActive} style="padding-top:10px ">
+            <ul class="mui-table-view ">
+                <li class="account_typeSelect_title "><span>选证证件类型</span></li>
+                <li class="mui-table-view-cell" @click='chooseIdType(item)' v-for="(item,index) in idTypeData"  :id="item.idType" ><a class="mui-pull-left " href="#">{{item.idTypeName}}</a> <img src="static/img/common_ico_checkmark.png" class="mui-pull-right"   v-if="selectIdType==item.idType"/>
+                </li>
+               
+            </ul>
+            
+        </div>
+         <div class="mui-backdrop" @click="isActive=false" v-show=isActive></div>
+     </div>
+</template>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js "></script>
+<script src="static/js/mui.min.js "></script>
+<script src="static/js/vue.js "></script>
+<script type="text/javascript" src="static/js/vue-router.js"></script>
+<script src="static/js/vue-resource.js "></script>
+<script src="static/js/validata.js "></script>
+<script src="static/js/util.js "></script>
+<script>
+Vue.filter(
+	"formatIdType",function(idType){
+		console.log(value);
+		var certTypeName = "";
+		switch(idType){
+			case "0":
+				certTypeName = "身份证";
+				break;
+			case "4":
+				certTypeName = "护照";
+				break;
+			case "5":
+				certTypeName = "其他";
+				break;
+		}
+		return certTypeName;
+	}
+)
+
+var bus = new Vue();
+
+var app = {
+    template: '#app-temp'
+}
+
+var appMain = {
+    template:'#appMain-temp',
+    data(){
+        return{
+            passengerList:[]
+        }
+    },
+    mounted(){      
+        this.$nextTick(function() {
+            this.passengerList = data.phoneBookList;
+        }.bind(this));
+    },
+    methods:{
+        addPassenger(){
+            // bus.$emit('pass',)
+            // bus.$emit('defaultIdType' ,"");
+            // bus.$emit('defaultIdNumber', "");
+            // bus.$emit('aaa', "111");
+            router.push('/add');
+        },
+        modifyPass(event){
+            let index = event.target.id;
+            let pass = new Object();
+            $.extend(pass,this.passengerList[index]);
+            //TODO 测试路由传参
+            // bus.$emit('pass',pass);
+            // bus.$emit('aaa', "222");
+            router.push('/edit/'+index);
+        },
+        deletePass(index,e){
+            var elem = e.target.parentNode.parentNode;
+            this.passengerList.splice(index,1);
+            mui.swipeoutClose(elem);
+            alert("删除成功");
+        }
+    }
+};
+
+var addTemp = {
+    template:'#add-temp',
+    data(){
+        return {
+            passenger:{
+                "id": "",
+                "name": "",
+                "mobile": "",
+                "idType": "0",
+                "idNumber": "",
+                "flag": 0
+            },
+            defaultIdType:"",
+            defaultIdNumber:"",
+            some:""
+        }
+    },
+    methods:{
+        selectType:function(){
+            typeSelect.isActive=true;
+            typeSelect.selectIdType = this.passenger.idType;
+        },
+        finish:function(){
+            let id = this.passenger.id;
+            if(isNull(id)){
+                //POST 服务端添加数据
+                let id = new Date().getTime();
+                this.passenger.id = id;
+                appMain.passengerList.push(this.passenger);
+                viewApi.go('#appMain');
+                alert("添加成功");
+            }else{
+                //修改信息
+                console.log(this.passenger);
+                var _this = this;
+                appMain.passengerList.forEach(function(item,index){
+                    if(item.id == _this.passenger.id){
+                        //这种方法不会触发视图更新
+                        //appMain.passengerList[index] = _this.passenger;
+                        Vue.set(appMain.passengerList, index, _this.passenger)
+                        return;
+                    }
+                });
+                viewApi.go('#appMain');
+                alert("修改成功");
+            }
+        }
+    },
+    watch:{
+        //id发生变化说明修改的数据发生变化
+        "passenger.id":function(newVal,oldVal){
+            if(!isNull(newVal)){
+                this.defaultIdType = this.passenger.idType;
+                this.defaultIdNumber = this.passenger.idNumber;
+            }
+        },
+        "passenger.idType":function(newVal,oldVal){
+            if(newVal==this.defaultIdType){
+                this.passenger.idNumber = this.defaultIdNumber;
+            }else{
+                this.passenger.idNumber = "";
+            }
+        }
+    },
+    mounted(){
+        this.$nextTick(function() {
+            var index = this.$route.params.index;
+            this.passenger = data.phoneBookList[index];
+        }.bind(this));
+     
+    },
+    computed:{
+        idTypeName:{
+            get:function(){
+                var certTypeName = "身份证";
+                let idType = this.passenger.idType;
+                switch(idType){
+                    case "0":
+                        certTypeName = "身份证";
+                        break;
+                    case "4":
+                        certTypeName = "护照";
+                        break;
+                    case "5":
+                        certTypeName = "其他";
+                        break;
+                }
+                return certTypeName;
+            }
+        }
+    }
+};
+
+var test = {
+    template:'<h1>我是测试2</h1>'
+}
+
+var test2 = {
+    template:'<h1>我是测试</h1>'
+}
+const  routes  = [
+    {path:"/list", component:appMain},
+    {path:'/add',component:addTemp},
+    {path:'/edit/:index',component:addTemp},
+    {path:"/app2",component:test2},
+    {path:"/app",component:test},
+    {path:"*",redirect:"/list"}
+]
+
+const router = new VueRouter({
+    routes
+});
+
+
+new Vue({
+    router,
+    components:{
+        app
+    }
+
+}).$mount('#app');
+
+function isNull(val){
+	return !val && val!==0 && typeof val!=="boolean"?true:false;
+}
+
+
+var data = {
+    "phoneBookList": [{
+        "id": "201702160949586715681028 ",
+        "name": "测试",
+        "mobile": "15151848877 ",
+        "idType": "4",
+        "idNumber": "G125124545 ",
+        "flag": 0
+    }, {
+        "id": "201702160950239804332252",
+        "name": "建军",
+        "mobile": "15151844870",
+        "idType": "4",
+        "idNumber": "G320815487",
+        "flag": 0
+    }, {
+        "id": "201702141727116457970233",
+        "name": "min/re ",
+        "mobile": "15151844870",
+        "idType": "5",
+        "idNumber": "G87812548",
+        "flag": 0
+    }]
+};
+
+
+    mui.init();
+    //初始化单页view
+  
+</script>
+
+</html>

@@ -1,0 +1,1690 @@
+/*
+ *gerenzhongxin
+ *  */
+html,body{
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "microsoft yahei";
+	height: 100%;
+}
+
+.personal_header a {
+	width: 34px;
+	height: 34px;
+	display: inline-block;
+	text-align: center;
+	border: 1.5px solid #444;
+	border-radius: 17px;
+	background-clip: padding-box;
+}
+
+.personal_header a.mui-icon {
+	margin-top: 5px;
+	padding-top: 3px;
+	padding-right: 3px;
+}
+
+.personal_header a.mui-icon-extra {
+	margin-top: 4px;
+	padding-top: 3px;
+	padding-right: 4px;
+}
+
+.personal_header h1 {
+	color: black
+}
+
+.personal_header a {
+	color: #444;
+}
+
+member_center {
+	font-size: 14px;
+	width: 100%;
+	color: #000;
+	font-family: "microsoft yahei";
+	margin: 0 auto;
+	background-image: url(../img/member/account_bg.png);
+	background-size: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow: scroll;
+}
+
+.member_center {
+	background-image: url(../img/member/account_bg.png);
+	background-size: 100%;
+}
+
+.head_top {
+	text-align: center;
+	padding-top: 15%;
+}
+
+/* .head_top img {
+	width: 30%;
+} */
+
+.headImg_div{
+				width:100px;
+				height:100px;
+				display: inline-block !important;
+				overflow:hidden;
+				-webkit-border-radius: 50px;
+				-moz-border-radius: 50px;
+				-o-border-radius: 50px;
+				border-radius:50px;
+				margin：0px auto;
+			}
+.head_name {
+	text-align: center;
+	text-decoration: underline;
+	font=font-family: "microsoft yahei";
+	font-size: 15px;
+	margin-top: 8px;
+}
+
+.head_level {
+	text-align: center;
+	margin-top: 8px;
+	font-size: 15px;
+}
+
+.head_level img#levelImg {
+	width: 20px;
+}
+
+.head_level img#levelDetail {
+	width: 14px;
+}
+
+.menu_list {
+	background-color: white;
+	margin-top: 4%;
+	overflow: hidden;
+}
+
+.middle_list {
+	text-align: center;
+	font-family: helvetica;
+	color: black!important;
+	font-size: 16px;
+}
+
+.middle_list img {
+	width: 20%;
+}
+
+.menu_list .middle_list span {
+	width: 33%;
+	float: left;
+	padding: 12px 0px;
+	margin: auto;
+}
+
+.middle_list .line {
+	margin-top: 12px!important;
+	width: 1px!important;
+	height: 50px!important;
+	background-color: #DDDDDD;
+}
+
+.middle_space {
+	border: 1px solid #DDDDDD;
+	border-left: none;
+	border-right: none;
+	width: 100%;
+	height: 20px;
+	background-color: #DDDDDD;
+}
+
+#list a img {
+	width: 8%;
+	float: left;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+#list a span {
+	padding-left: 10px;
+	font-size: 16px;
+	padding-bottom: 5px;
+}
+
+
+/**
+ * 我的账户 默认css start
+ */
+.account_body
+.mui-views,
+.mui-view,
+.mui-pages,
+.mui-page,
+.mui-page-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #efeff4;
+}
+
+.mui-pages {
+	top: 46px;
+	height: auto;
+}
+
+
+
+.mui-page.mui-transitioning {
+	-webkit-transition: -webkit-transform 300ms ease;
+	transition: transform 300ms ease;
+}
+
+.mui-page-left {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.mui-ios .mui-page-left {
+	-webkit-transform: translate3d(-20%, 0, 0);
+	transform: translate3d(-20%, 0, 0);
+}
+
+.mui-navbar {
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	height: 44px;
+	background-color: #f7f7f8;
+}
+
+.mui-navbar .mui-bar {
+	position: absolute;
+	background: transparent;
+	text-align: center;
+}
+
+.mui-android .mui-navbar-inner.mui-navbar-left {
+	opacity: 0;
+}
+
+.mui-ios .mui-navbar-left .mui-left,
+.mui-ios .mui-navbar-left .mui-center,
+.mui-ios .mui-navbar-left .mui-right {
+	opacity: 0;
+}
+
+.mui-navbar .mui-btn-nav {
+	-webkit-transition: none;
+	transition: none;
+	-webkit-transition-duration: .0s;
+	transition-duration: .0s;
+}
+
+.mui-navbar .mui-bar .mui-title {
+	display: inline-block;
+	width: auto;
+}
+
+.mui-page-shadow {
+	position: absolute;
+	right: 100%;
+	top: 0;
+	width: 16px;
+	height: 100%;
+	z-index: -1;
+	content: '';
+}
+
+.mui-page-shadow {
+	background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+	background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+}
+
+.mui-navbar-inner.mui-transitioning,
+.mui-navbar-inner .mui-transitioning {
+	-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+	transition: opacity 300ms ease, transform 300ms ease;
+}
+
+
+
+.mui-pages .mui-page {
+	display: block;
+}
+
+.account_body  .mui-page .mui-table-view:first-child {
+	margin-top: 15px;
+}
+
+.account_body  .mui-page .mui-table-view:last-child {
+	margin-bottom: 30px;
+}
+
+.account_body .mui-table-view {
+	margin-top: 20px;
+}
+
+.account_body  .mui-table-view span.mui-pull-right {
+	color: #999;
+}
+
+.account_body  .mui-table-view-divider {
+	background-color: #efeff4;
+	font-size: 14px;
+}
+.account_body 
+.mui-table-view-divider:before,
+.account_body  .mui-table-view-divider:after {
+	height: 0;
+}
+
+/*.head {
+	height: 40px;
+}*/
+
+.account_head_a {
+	line-height: 40px;
+}
+
+.account_head_img {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	bottom: 10px;
+	right: 40px;
+}
+/*
+.update {
+	font-style: normal;
+	color: #999999;
+	margin-right: -25px;
+	font-size: 15px
+}*/
+
+.mui-fullscreen {
+	position: fixed;
+	z-index: 20;
+	background-color: #000;
+}
+
+.mui-ios .mui-navbar .mui-bar .mui-title {
+	position: static;
+}
+
+/*  我的账户默认css  end  */
+
+/*  我的账户ｃｓｓ　 */
+#myAccount{
+	font-size: 1rem;
+}
+
+
+
+.account_header{
+	background-color: #08A9E5!important;
+	color:white
+}
+
+.account_header h1,a,button span{
+	color:white
+}
+
+.account_text{
+	padding-right: 6%;
+	font-size: 16px;
+}
+.account_out{
+	background-color: skyblue;
+	width: 86%;
+	margin: 20px auto;
+	margin-left: 7%;
+	color:white;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.account_gender span{
+	font-size: 16px;
+	padding-left: 20px;
+}
+
+.account_gender_active{
+	color:red!important;
+}
+
+.account_input label{
+	font-family: "microsoft yahei"!important;
+}
+
+.account_input input{
+	text-align: right;
+	font-family: "microsoft yahei";
+	font-size:14px;
+}
+
+.account_certType input{
+	padding-right: 10%;
+}
+
+
+.account_code_li input{
+	width: 40%!important;
+	margin-right: 25%;
+	text-align: right;
+}
+
+
+.account_code_li .account_code_button{
+	margin-top: 0px;
+	padding: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius:3px;
+	width: 25%;
+	height: 30px;
+	line-height: 30px;
+
+}
+.account_tel_tip{
+	margin-top: 10px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.account_pwd_input input{
+	text-align: left;
+}
+
+.account_pwd_input .account_input{
+	float: left!important;
+	width: 85%;
+}
+
+.account_pwd_input .mui-switch-mini{
+	float: right;
+	color:#444444;
+}
+
+.account_pwd_tip{
+	margin-top: 20px;
+	padding-left:6%;
+	color: #000;
+	font-size: 14px;
+	text-align: left;
+}
+
+.account_typeSelect{
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 40%;
+}
+
+.account_typeSelect_title{
+	position: relative;
+	list-style-type: disc;
+	color:skyblue;
+	border-bottom: 1px solid skyblue;
+    overflow: hidden;
+    padding: 11px 15px;
+    padding-top: 0;
+} 
+
+.account_typeSelect img{
+	margin-right: 5px;
+	margin-top: 5px;
+	width:5%;
+}
+
+
+/*  地址管理   */
+.account_address_info{
+	padding-left: 10%;
+	width: 75%;
+	float:left;
+}
+
+.account_address_info #contactTel{
+	margin-left: 5%;
+}
+.account_adedit_icon{
+	margin-top:8px
+}
+
+.account_edit_province input{
+	padding-right: 10%;
+}
+
+.account_address_form li{
+	font-size: 14px;
+	padding: 3px;
+}
+.account_address_form input{
+	font-size: 14px;
+	padding: 3px;
+	text-align: left;
+}
+
+.mui-page-content{
+	margin-top: 54px!important;
+}
+/*乘机人 */
+.air_people_content{
+	
+	font-size:1rem ;
+}
+.air_people_add img{
+	margin-top: 3%;	
+	margin-left: 35%;
+}
+.air_people_add span{
+	margin-left: 5px;
+	
+}
+
+.air_people_list{
+	margin-top: 3%!important;
+}
+
+.air_people_info{
+	padding-left: 8%;
+	width: 75%;
+	float:left;
+}
+
+.air_people_info img{
+	width: 8%;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+.air_people_add{
+	width: 90%;
+	margin-left: 5%;
+	background-color: white;
+	height: 40px;
+	line-height: 40px;
+	color: deepskyblue;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.air_passenger_add {
+	background-color: transparent;
+	background: url(../img/member/flight_list_bg.png) ;
+	background-size: 100%;
+	background-position: center 20%;	
+}
+.air_passenger_add .mui-page-content{
+	background-color: transparent;
+}
+.air_passenger_header a{
+	margin-top: 12px;
+	font-size: 15px;
+}
+.air_passenger_form{
+	font-size: 16px;
+}
+.air_passenger_form input{
+	font-size: 16px;
+}
+
+
+/* 我的财富 */
+.wealth_content .mui-table-view{
+	margin-top: 20px;
+}
+.wealth_left_money p{
+	margin-top: 15px;
+	font-size: 18px;
+	color: orangered;
+}
+.wealth_left_money #leftMoney{
+	font-size: 22px;
+}
+.wealth_recharge_detail{
+	margin-top: 5%;
+	margin-right: 2%;
+	color: deepskyblue;
+	border: 1px deepskyblue solid;
+	padding: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius:3px;
+}
+.wealth_menu_list img{
+	width: 8%;
+	float: left;
+}
+.wealth_menu_list li span{
+	margin-left: 15px;
+}
+
+.wealth_recharge_left{
+	margin-top: 20px;
+	margin-left: 5%;
+	font-size: 15px;
+}
+.wealth_recharge_left span{
+	color:orangered;
+	font-size: 14px;
+	margin-left: 2%;
+}
+
+
+.wealth_recharge_select {
+	padding-left: 5%;
+	margin-top: 10px;
+	width: 100%;
+	overflow: hidden;
+}
+.wealth_recharge_select div {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 29%;
+	text-align: center;
+	padding:5px 5px;
+	float: left;
+	margin-left: 2%;
+	margin-top: 10px;
+	border: 0px;
+}
+.wealth_recharge_other{
+	text-align: center;
+	width: 91%!important;
+	padding:5px 5px;
+	font-size: 15px;
+	font-family: "microsoft yahei";
+}
+.wealth_money_active{
+	background-image: url(../img/flight/flight_btn_passengers_box_selected.png);
+}
+.wealth_other_money{
+	margin-top: 15px;
+	font-size: 16px;
+}
+.wealth_other_money input{
+	font-size: 16px;
+}
+.wealth_other_money li{
+	padding: 5px 10px;
+}
+.wealth_other_tip{
+	font-size: 14px;
+	text-align: right;
+}
+
+.wealth_feid_info{
+	width: 92%;
+	margin-left: 4%;
+	margin-top: 20px;
+	background-color: paleturquoise;
+}
+.wealth_feid_info img{
+	width: 25%;
+	margin-left: 5%;
+}
+.wealth_left_feid{
+	margin-top: 5%;
+	margin-right: 5%;
+}
+
+.wealth_left_feid span{
+	font-size: 14px;
+}
+.wealth_left_feid p{
+	margin-top: 10px;
+	font-size: 18px;
+	text-align: right;
+	font-size: 18px;
+	color: forestgreen;
+}
+
+.wealth_feid_tip{
+	font-size: 15px;
+	padding: 5%;
+	width: 92%;
+	margin-left: 4%;
+	background-color: gainsboro;
+	border-top: 1px solid gainsboro;
+}
+
+.wealth_feid_rule{
+	width: 80%;
+	color: #000000;
+	font-size: 16px;
+	margin: 20px auto;
+}
+
+.wealth_feid_rule p{
+	color: #000000;
+	margin-top: 15px;
+	font-size: 16px;
+}
+.wealth_feid_rule p.title{
+	font-size: 20px;
+	color:red;
+}
+
+/**
+ *飞豆明细 
+ */
+.feid_detail_list .mui-control-content {
+	background-color: white;
+	min-height: 480px;
+}
+
+
+
+/* 我的订单*/
+.order_history{
+	position:fixed;
+	z-index: 1000;
+	bottom:-10px;
+	left:0px;
+}
+ 
+.order_bottom{
+	width: 100%;
+	background-color: #EFEFF4;
+	z-index: 999;
+	height:13%;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+}
+.order_list .mui-control-content{
+	min-height: 800px;
+	background-color: white;
+	
+}
+
+.order_list_pop{
+	width: 100%;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+}
+
+.order_date_text{
+	text-align: center!important;
+	padding-top: 10px;
+}
+
+#orderListItem img.order_not_found{
+	width:30%!important;
+	margin-left: 35%;
+	margin-top: 35%;
+}
+#orderListItem p{
+	text-align: center;
+}
+
+.order_li_modal{
+	width: 99.8%;
+	margin-left: 0.1%;
+	
+}
+
+.order_li_code{
+	background-color: #08A9E5;
+	color: white;
+	font-size: 14px;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 3%;
+	overflow: hidden;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-radius:5px 5px 0px 0px;
+	
+}
+.order_li_code #orderCode{
+	margin-left: 3%;
+}
+.order_li_code #orderStatus{
+	float: right;
+	padding-right: 2%;
+}
+
+.order_li_date{
+	overflow: hidden;
+	background-color: #DDDDDD!important;
+	-webkit-border-radius:0px 0px 5px 5px ;
+	-moz-border-radius: 0px 0px 5px 5px ;
+	border-radius:0px 0px 5px 5px ;
+}
+.order_li_date div{
+	float:left;
+}
+.order_flight_city{
+	width:30%
+}
+.order_flight_date{
+	width: 40%;
+	padding-bottom: 2%;
+}
+.order_flight_city p{
+	color: #000000;
+}
+.order_flight_city p:first-child{
+	font-size: 18px;
+	margin-top: 20%;
+}
+.order_flight_city p:last-child{
+	font-size: 16px;
+	margin-top: 5%;
+}
+.order_flight_date p:first-child{
+		color: #000000;
+		margin-top:10%;
+		font-size: 13px;
+}
+.order_flight_date img{
+	width: 65%!important;
+	margin-left: 17.5%;
+}
+.order_flight_date p:last-child{
+		color: #000000;
+		font-size: 13px;
+		margin-top: -8px;
+}
+.order_flight_price{
+	width: 25%;
+	float:left;
+	text-align:right;
+	padding-right:10px;
+	
+}
+.order_flight_price span{
+	width:100%;
+	
+	color: orange;
+	font-size: 16px;
+	
+}
+.order_flight_price img{
+	width: 8px!important;
+	
+}
+/*充值明细 */
+.recharge_detail_list img{
+	width:30%!important;
+	margin-left: 35%;
+	margin-top: 35%;
+}
+.recharge_detail_list p{
+	text-align: center;
+}
+/* 订单详情 */
+.order_detail_silder .mui-segmented-control{
+	position: fixed;
+    top: 44px;
+    z-index: 1;
+    left: 0;
+    transform: translate3d(0, 0, 0);
+    background-color: white;
+}
+.order_detail_silder .mui-slider-progress-bar{
+	position: fixed;
+	margin-top: 36px;
+	height: 3px;
+}
+
+.order_detail_content{
+	margin-top: 36px;
+	padding-bottom: 44px;
+}
+
+.order_detail_flyInfo,.order_detail_info,.order_detail_ticket{
+	margin-top: 2%;
+}
+.order_detail_title{
+	position: relative;
+	list-style-type: disc;
+	color:#000000;
+	border-bottom: 1px solid skyblue;
+    overflow: hidden;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+.order_detail_title .style_blod{
+	font-weight: bold;
+	float: left;
+}
+.order_detail_title #flightDate{
+	float: left;
+	margin-left: 30%;
+	color: #777777;
+}
+.order_detail_title #flightType{
+	float: right;
+	margin-right: 5%;
+	color: deepskyblue;
+}
+
+.order_detail_flyDetail{
+	overflow: hidden;
+}
+.order_detail_flyDetail div{
+	float: left;
+}
+.order_detail_flyTime{
+	width: 20%;
+}
+.order_detail_flyTime p:first-child{
+	margin-top: -1%;
+	color: #000000;
+	text-align: center;
+}
+.order_detail_flyTime p:last-child{
+	margin-top: 40px;
+	color: #000000;
+	text-align: center;
+}
+.order_detail_flyCity{
+	width: 20%;
+	margin-left: 8%;
+	text-align: center;
+}
+.order_detail_flyCity p:first-child{
+	margin-top: -1%;
+	color: #000000;
+}
+.order_detail_flyCity p:nth-child(2){
+	margin-top: 9px;
+	font-size: 12px;
+	padding-left: ;
+}
+.order_detail_flyCity p:last-child{
+	margin-top: 9px;
+	color: #000000;
+}
+.order_detail_flyAir{
+	width: 46%;
+	text-align: right;
+}
+.order_detail_flyAir p:first-child{
+	margin-top:5%;
+}
+.order_detail_flyAir p{
+	color: #000000;
+}
+
+.order_detail_info li span:nth-child(2){
+	padding-right: 4%;
+	float:right;
+}
+.order_detail_passenger a{
+	padding-right: 8%!important;
+	float:right;
+	font-size: 22px;
+}
+.order_detail_passenger #passengerName{
+	padding-right: 2%;
+	float:right;
+}
+.order_detail_info #orderPrice{
+	color:orangered;
+}
+
+.order_detail_bottom{
+	width: 100%;
+	background-color: #EFEFF4;
+	z-index: 999;
+	height:44px;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+}
+.order_detail_paybtn{
+	position:fixed;
+	z-index: 1000;
+	bottom: 0;
+	left:0px;
+	background-color: skyblue;
+	width: 100%;
+	margin: 0 auto;
+	color:white;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.order_detail_coupo img{
+	width: 6%!important;
+	float:left;
+}
+.order_detail_coupo .coupun_title{
+	margin-left: 12px;
+	font-weight: bold;
+}
+.order_detail_coupo .coupun_price{
+	float:right;
+	margin-right: 6%;
+}
+.odetail_coupon_content p{
+	width: 100%;
+	color:#000000;
+}
+
+.odetail_coupon_content .coupon_price{
+	margin-left: 15%;
+}
+.odetail_coupon_content .coupon_num{
+	float:right;
+	margin-right: 15%;
+}
+.order_detail_more{
+	margin-top: 35%;
+	
+}
+.order_detail_more .order_more_div{
+	width: 25%!important;
+	margin-left:6%;
+	float: left;
+	font-size:12px
+}
+.order_detail_more img{
+	margin-left:10%;
+	width:80%!important;
+	
+}
+.order_detail_more p{
+	width: 100%;
+	text-align: center;
+	
+}
+
+#orderDetailItem {
+    height: 100%;
+}
+/*银行列表*/
+.bank_list_li li{
+	padding: 6px 15px!important;	
+}
+.bank_list_li  img{
+	width: 10%;
+	float:left;
+}
+
+.bank_list_li  div{
+	font-size: 16px;
+	padding-left: 10px;	
+	float:left;
+	padding-top: 2%;
+}
+
+.bank_list_content .mui-scroll-wrapper{
+	margin-top: 15%;
+}
+.bank_list_content span{
+	padding-bottom: 10px;
+}
+
+.order_detail_ticket .ticket_title{
+	width: 65%;
+	float: left;
+}
+.order_detail_ticket .order_ticket_num{
+	width: 15%;
+	float:left;
+}
+
+.order_detail_ticket .order_ticket_price{
+	float: right;
+	padding-right: 4%;
+}
+
+.odetail_passenger_detail div{
+	padding-left: 15%;
+}
+.odetail_passenger_detail div span:first-child{
+	margin-left: 20px;
+}
+.odetail_passenger_value{
+	color:#777777
+}
+.order_tcard_status{
+	color:orangered
+}
+/* 添加银行卡  */
+.card_add_form .mui-scroll-wrapper{
+	margin-top: 44px;
+	font-size: 16px;
+}
+.card_add_form li:first{
+	background-color: red!important;
+}
+
+.card_add_tip{
+
+	height:44 px;
+	line-height: 44px;
+	font-size: 15px;
+}
+.card_add_tip span{
+	float:right;
+	padding-right: 4%;
+	color:deepskyblue;
+}
+
+.card_add_cardinput{
+	height: 40px;
+	padding: 0 ;
+	line-height: 40px;
+	font-size:14px;
+}
+.card_add_cardinput label{
+	float: left;
+	width: 35%;
+	margin-left: 2%;
+	padding: 0px;
+	line-height:40px;
+	font-family: "microsoft yahei";
+}
+.card_add_cardinput input{
+	float: left!important;
+	width: 50%!important;
+	height: 40px;
+	border:0px;
+	line-height:40px;
+	font-size:14px;
+	font-family: "microsoft yahei";
+}
+.card_add_cardinput .input_short{
+	
+}
+.card_add_cardinput img{
+	width: 10%;
+	margin-top: 2%;
+}
+.addCard_cert_type img{
+	width: 6%;
+	margin-top: 8px;
+}
+.addCard_cert_type a{
+	margin-top: 5%;
+}
+
+.addCard_typeSelect_title{
+	position: relative;
+	list-style-type: disc;
+	color:skyblue;
+	border-bottom: 1px solid skyblue;
+    overflow: hidden;
+    padding: 11px 15px;
+}
+/* 我的通行证 start */
+#shareBtn{
+	color:white
+}
+
+.my_account_passort a,h1{
+	color:white
+}
+
+.my_account_passort a{
+	width: 34px;
+	height: 34px;
+	display: inline-block;
+	text-align: center;
+	border: 1.5px solid white;
+	-webkit-border-radius: 17px;
+	-moz-border-radius: 17px;
+	-o-border-radius: 17px;
+	border-radius:17px;
+	background-clip: padding-box;
+}
+
+.passort_qr_img{
+	margin-top: 10px;
+	text-align: center;
+}
+.passort_qr_img img{
+	
+	
+}
+
+.passort_tip{
+	text-align: center;
+	font-family: "microsoft yahei";
+	font-size: 15px;
+	margin-top: 2px;
+}
+
+.llllsss{
+	background-image:url(../img/my_qr_bg_img.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100px;
+}
+
+
+/* bankcard start */
+#bankcardContent img.bank_nodata_img{
+	
+	width: 30%!important;
+    margin-left: 35%;
+    margin-top: 35%;
+}
+
+#bankcardContent .mui-scroll-wrapper,#bankcardContent .mui-scroll{
+	background-color: #EFEFF4!important;
+}
+
+.bank_nodata_tip{
+	
+	text-align: center;
+}
+
+.bank_card_item{
+	width: 96%;margin: 0 auto;height: 100%;
+	margin-top:10px;
+	
+}
+.bcard_item_div{
+	background-color: cornflowerblue;height: 100%;overflow: hidden;padding-top: 3%;padding-bottom: 2%;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-radius:5px 5px 0px 0px;
+}
+
+.bank_card_content{
+	background-color: #EFEFF4;margin-top: 54px;height: 100%;
+}
+.bank_card_content:before,.bank_card_content:after{
+	background-color: #EFEFF4;
+}
+
+.bcard_item_logo{
+	margin-left: 3%;float: left;width: 32px;
+	margin-top:4px;
+}
+.bcard_bank_detail{
+	float:left;width: 25%;margin-left: 3%;
+}
+.bcard_bank_type{
+	color: white;font-size: 16px;
+}
+.bcard_card_type{
+	color:white;font-size: 14px;margin-top: 2px;
+}
+.bcard_bank_card{
+	float:right;margin-right: 2%;
+}
+.bcard_card_num{
+	
+	color:white;margin-top: 2px;font-size: 16px;
+}
+.bcard_pay_fast{
+	color: white;text-align: right;font-size: 12px;margin: 0;
+}
+.bank_option_item{
+	background-color: #DDDDDD;font-size: 14px;overflow: hidden;
+	-webkit-border-radius:0px 0px 5px 5px;
+	-moz-border-radius:0px 0px 5px 5px ;
+	border-radius:0px 0px 5px 5px;
+}
+.bank_option_item label{
+	padding-left: 45px!important;font-family: 'microsoft yahei';
+}
+.bank_option_item input{
+	left:10px!important;
+}
+.bcard_card_delete{
+	margin-right: 10%;
+}
+.bcard_card_delete img{
+	width: 24px;
+	margin-top: 6px;float: left;
+}
+.bcard_card_delete span{
+	float: left;margin-top: 8px;margin-left: 10px;
+}
+/* bankcard end */
+
+/* 优惠券 start */
+.conpou_list_item{
+	margin-left: 2%;width: 96%;
+	overflow: hidden;
+	margin-bottom: 2%;
+}
+.conpou_item_content{
+	float:left;width: 75%;background-color: #00BFFF;color: white;font-size: 14px;padding: 5px;
+	
+}
+.coupon_item_btn{
+	float: right;background-color: white;width: 25%;height: 100%;padding:30px 0px;text-align: center;
+}
+.coupon_item_btn button{
+	background-color: orange;color: white;margin-top: 00px;
+}
+
+
+
+/* 退票须知 */
+.refund_willing_title{
+	height:36px;
+	line-height: 36px;
+	border-bottom: 1px solid skyblue;
+	border-top:0px dotted white;
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.refund_willing_content{
+	font-size:14px;
+	padding: 12px;
+}
+.refund_willing_tip{
+	font-size: 12px;
+	color:green;
+	padding: 4px 12px;
+}
+
+/*  退票 */
+
+/* 退票信息 */
+.refund_order_title{
+	height:36px;
+	line-height: 36px;
+	border-bottom: 1px solid skyblue;
+	border-top:0px dotted white;
+	padding-left: 10px;
+	font-size: 15px;
+	font-weight: bold;	
+}
+
+.refund_order_li{
+	height: 36px;
+	line-height: 36px;
+	border-bottom: 1px solid #DDDDDD;
+	font-size:14px;
+	padding-left: 10px;
+	overflow: hidden;
+}
+
+.refund_order_li span{
+	float:right;
+	margin-right: 12px;
+}
+.refund_ticket_hr{
+	
+	width: 1px;height:136px;background-color: #DDDDDD;float:left;margin:4px 8px ;
+}
+.refund_ticket_switch{
+	float:left;padding-top: 45px;
+	padding-left: 5%;
+}
+
+.refund_ticket_switch span{
+	font-size: 14px;
+}
+.refund_ticket_content{
+	overflow: hidden;
+	border-bottom: 1px dashed  #DDDDDD;
+}
+.refund_ticket_detail{
+	position: fixed;
+	top:10%;
+	width: 84%;
+	margin-left: 8%;
+
+}
+
+.refund_detail_title{
+	margin-bottom:20px;font-size:18px;
+}
+.refund_detail_li{
+	font-size: 14px;
+}
+.refund_detail_li span{
+	margin-left: 15%;
+}
+.refund_detail_confirm{
+	margin-top: 10px;font-size: 14px;text-align: right;color: burlywood;
+}
+.refund_apply_tip{
+	position: fixed;bottom: 0px;width: 100%;
+}
+.refund_apply_title{
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	border-bottom: 1px solid forestgreen;
+	color:forestgreen;
+}
+.refund_apply_title span:first-child{
+	margin-left: 40px;
+}
+.refund_apply_title span:last-child{
+	float:right;
+	margin-right: 10px;
+	margin-top: 5px;
+	font-size: 30px;
+}
+.refund_apply_content{
+	padding: 15px;
+	font-size: 15px;
+}
+.refund_allay_tip{
+	padding-left: 15px;
+	font-size: 14px;
+	text-decoration: underline;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.refund_apply_btn{
+	padding: 15px 5%;
+}
+.refund_apply_btn div{
+	text-align: center;
+	width: 100%;
+	background-color: forestgreen;
+	color: white;
+	height: 36px;
+	line-height: 36px;
+}
+.refund_ticket_submit{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	padding: 10px 2%;
+	background-color: white;
+	border-top:1px solid #DDDDDD;
+	
+}
+.refund_ticket_submit div{
+	background-color: skyblue;
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	color: white;
+	z-index: 2;
+}
+.refund_ticket_info{
+	margin-bottom: 56px;
+}
+.refund_reason_li{
+	padding:12px;
+	font-size: 15px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.refund_reason_li input{
+	margin-left: 20px;
+	width: 55%;
+	padding: 0px;
+	height: 26px;
+	margin-bottom: 0px;
+	border: none;
+	font-size: 14px;
+}
+.refund_reason_area{
+	padding-bottom: 12px;
+	height:80px;
+	padding-right: 0px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.refund_reason_area div{
+	margin-left:12px;
+	width: 20%;float:left;
+	padding-top: 25px;
+	font-size: 15px;
+	
+}
+.refund_reason_area textarea{
+	margin-top: 4px;
+	height: 62px;
+	font-size: 15px;
+	padding: 1px;
+	border: none;
+	margin-left: 20px;
+	width: 70%;float: left;overflow:visible
+}
+.refund_reson_type{
+	width:70%;background-color: white;position: absolute;top: 2px;left: 24%;
+	-moz-box-shadow:1px 5px 15px #ddddd; -webkit-box-shadow:1px 5px 15px #DDDDDD; box-shadow:1px 5px 15px #DDDDDD;
+}
+.refund_reson_type div:first-child{
+	margin-top:8px ;
+}
+.refund_reson_type div:last-child{
+	margin-top:16px ;
+}
+.refund_ticket_base{
+	width: 72%;float:left;
+}
+
+/* 支付银行 */
+.pay_card_tip{
+
+	height:36px;line-height:36px;border-top:1px solid #DDDDDD;
+	font-size:14px;
+	margin-top: 10px;
+}
+.pay_card_tip span{
+	float:right;
+	padding-right: 4%;
+	color:deepskyblue;
+}
+
+.pay_confirm{
+	background-color: skyblue;
+	width: 100%;
+	color:white;
+	font-size: 16px;
+	position: fixed;
+	bottom: 0px;
+	padding:0px;
+	height:36px;
+	line-height:36px;
+	z-index:3;
+}
+
+.pay_bank_typeSelect{
+	position: fixed;
+	top:10%;
+	left:10%;
+	width:80%;
+	font-size:14px
+}
+.pay_bank_typeSelect img{
+		margin-right: 5px;
+	margin-top: 5px;
+	width:5%;
+}
+
+
+/* 意见反馈 */
+.feedback_tag{
+	font-size:16px;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 20px;
+}
+.feedback_tag p{
+	font-size: 15px;
+	text-indent: 0.5em;
+}
+.feedback_tag span{
+	font-size: 14px;
+	height: 20px;
+	width: 100%;
+	margin-top: 10px;
+	background-color: #DEB887;
+	text-align: center;
+	padding: 5px;
+	color: white;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	margin: 0 2px;
+}
+
+.feedback_content{
+	font-size:16px;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 20px;
+}
+.feedback_content p{
+	font-size: 15px;
+	text-indent: 0.5em;
+	margin-bottom: 0px;
+}
+.feedback_content textarea{
+	margin-top: 10px;
+	padding: 5px;
+	overflow: hidden;
+	height: 150px;
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+.feedback_tel{
+	font-size:16px;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 20px;
+	background-color: white;
+	height: 36px;
+	line-height: 36px;
+}
+.feedback_tel p{
+	font-size: 15px;
+	text-indent: 0.5em;
+	margin-bottom: 0px;
+}
+.feedback_tel span{
+	margin-left: 20px;
+}
+#feedback-submit{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	padding: 0px;
+	background-color: deepskyblue;
+	color: white;
+}
+
+
+/* 登机牌 */
+.passboard_content{
+	width: 80%;
+	margin-left: 10%;
+	
+	
+}
+.passboard_content p{
+	padding: 0px!important;
+	color:#000000;
+	margin-bottom: 0px;
+	font-family: "microsoft yahei";
+}
+.passboard_city{
+	background-color: #DEB887;
+	overflow: hidden;
+	margin-top: 10%;
+	height：100%;
+}
+.passboard_city>div{
+	float:left;
+	width: 33%;
+}
+.passboard_city>div{
+	text-align: center;
+	padding-top: 28px;
+	padding-bottom: 20px;
+}
+.passboard_city>div>p:first-child{
+	font-size: 18px;
+	font-weight:bold;
+	margin-bottom: 5px;
+}
+.passboard_city img{
+	width: 25%;
+}
+.passboard_userInfo{
+	padding: 12px;
+	background-color: white;
+	overflow: hidden;
+}
+.passboard_userInfo>div{
+	float: left;
+	width: 50%;
+}
+.passboard_userInfo>div>p:first-child{
+	margin-bottom: 5px;
+	color: dimgray;
+}
+.passboard_flyInfo{
+	padding: 12px;
+	background-color: white;
+	overflow: hidden;
+	border-bottom: 1px solid #DDDDDD;
+}
+.passboard_flyInfo>div>p:first-child{
+	margin-bottom: 5px;
+	color: dimgray;
+}
+.passboard_flyInfo>div{
+	float: left;
+	width: 25%;
+}
+.passboard_qrcode{
+	text-align: center;
+	background-color: white;
+	overflow: hidden;
+	border-bottom: 1px solid #DDDDDD;
+	padding: 20px;
+}
+
+/* 值机 */
+.takeair_content{
+	margin-top: 12px;
+}
+.takeair_content p{
+	font-size: 15px;
+	color:darkgreen;
+	margin-left: 20px;
+}
+.takeair_content>div{
+	background-color: white;
+	height: 44px;
+	line-height: 44px;
+	font-size: 15px;
+}
+
+.takeair_content span{
+	font-size:12px
+}
+.takeair_content>div>div span{
+	 padding:4px 12px;
+}
+.takeair_content>div>div:last-child{
+	margin-right: 1%;
+}
+.takeair_content>div>div:last-child span:last-child{
+	 	background-color: darkgreen;
+	color: white;
+	padding: 4px 16px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
